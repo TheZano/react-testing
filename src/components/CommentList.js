@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Card } from './Card';
+import { useSelector } from 'react-redux';
 
 export const CommentList = () => {
-    return (
-        <div>
-            comment list
-        </div>
-    )
-}
+  const comments = useSelector((state) => state.comments);
+  return <div>{comments.map((comment, index) => <Card text={comment} key={index} />)}</div>;
+};
